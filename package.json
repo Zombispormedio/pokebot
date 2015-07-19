@@ -4,7 +4,7 @@
   "description": "Bot about Pokemon",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/Zombispormedio/pokebot#readme",
   "dependencies": {
-    "node-telegram-bot": "0.0.17"
+    "node-telegram-bot": "0.0.17",
+    "supervisor": "^0.7.1"
   },
   "readme": "README.md"
-  
 }
