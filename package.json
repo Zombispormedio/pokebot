@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/Zombispormedio/pokebot#readme",
   "dependencies": {
-    "node-telegram-bot": "0.0.17",
-    "supervisor": "^0.7.1"
+    "node-telegram-bot": "0.0.17"
+
   },
   "readme": "README.md"
 }
