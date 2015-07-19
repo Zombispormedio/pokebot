@@ -1,5 +1,5 @@
 var Bot = require('node-telegram-bot');
-
+var port = process.env.PORT || 5000;
 var bot = new Bot({
   token: '123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4'
 })
