@@ -1,0 +1,29 @@
+{
+  "name": "pokebot",
+  "version": "1.0.0",
+  "description": "Bot about Pokemon",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zombispormedio/pokebot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot"
+  ],
+  "author": "Xavier Serrano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zombispormedio/pokebot/issues"
+  },
+  "homepage": "https://github.com/Zombispormedio/pokebot#readme",
+  "dependencies": {
+    "node-telegram-bot": "0.0.17"
+  },
+  "readme": "README.md"
+  
+}
