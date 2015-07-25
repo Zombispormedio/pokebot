@@ -28,6 +28,17 @@ function _send(obj){
 }
 
 
+function _message(m){
+    var obj={chat_id: m.id, text:m.text};
+
+    _send({
+        method:"sendMessage",
+
+        data:obj
+
+    });
+}
+
 function _audio(m){
 
     var obj={chat_id: m.id, audio:fs.createReadStream(m.audio)};
@@ -44,6 +55,7 @@ function _audio(m){
 function sendWelcome(message){
 
     _audio({id:message.chat.id, audio: "hello.ogg"});
+    _message({id:message.chat.id, text: "Pika Pika-Chu"});
 }
 
 
