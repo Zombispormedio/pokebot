@@ -22,7 +22,7 @@ function sendMessage(message){
    json:true,
         url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendAudio",
         formData:    {chat_id:message.chat.id,
-                      photo:fs.createReadStream("hello.ogg")/*,
+                      audio:fs.createReadStream("hello.ogg")/*,
                       caption:"Pika Pika-Chu"*/}
     }, function(error, response, body){
         console.log(error);
