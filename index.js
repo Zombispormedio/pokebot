@@ -32,7 +32,7 @@ pika.route("/talk")
     .post(function(req, res){
      console.log(res.body);
     //sendMessage(req.body.message);
-    res.send(200).jsonp({});
+    res.status(200).jsonp({});
 });
 
 app.use(pika);
