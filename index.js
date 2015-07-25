@@ -3,7 +3,7 @@
 
 var express = require('express');
 var request = require('request');
-
+var fs=require("fs");
 var app = express();
 require("./config/express.js")(app);
 app.set('port', (process.env.PORT || 5000));
@@ -20,8 +20,10 @@ function sendMessage(message){
 
     request.post({
    json:true,
-        url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendMessage",
-        formData:    {chat_id:message.chat.id,text:"Pika Pika-Chu"}
+        url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendPhoto",
+        formData:    {chat_id:message.chat.id,
+                      photo:fs.createReadStream("hello.png"),
+                      caption:"Pika Pika-Chu"}
     }, function(error, response, body){
         console.log(error);
         console.log(body);
