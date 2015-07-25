@@ -43,7 +43,7 @@ function _pokeapi(method, cb, image){
 
 
 
-_pokeapi("/api/v1/pokemon/"+poke_number+"/", function(body){
+_pokeapi("/api/v1/pokemon/493/", function(body){
 
     var sprite=body.sprites;
 

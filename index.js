@@ -142,7 +142,7 @@ pika.route("/talk")
             _pokeapi(sprite[getRand(0,sprite.length-1)].resource_uri, function(body){
 
                 _pokeapi(body.image, function(){
-                    _photo({id:message.chat.id, photo: poke_number+".png" }, function(){
+                    _photo({id:message.chat.id, photo: poke_number+".png", caption: name }, function(){
                         fs.unlink(poke_number+".png");
                     });
 
