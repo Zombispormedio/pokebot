@@ -15,26 +15,59 @@ app.use(router);
 
 var pika=express.Router();
 
-
-function sendMessage(message){
+function _send(obj){
 
     request.post({
-   json:true,
-        url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendAudio",
-        formData:    {chat_id:message.chat.id,
-                      audio:fs.createReadStream("hello.ogg")/*,
-                      caption:"Pika Pika-Chu"*/}
+        json:true,
+        url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/"+obj.method,
+        formData:   obj.data
     }, function(error, response, body){
         console.log(error);
-        console.log(body);
+
     });
+}
+
+
+function _audio(m){
+
+    var obj={chat_id: m.id, audio:fs.createReadStream(m.audio)};
+
+
+    _send({
+        method:"sendAudio",
+
+        data:obj
+
+    });
+}
+
+function sendWelcome(message){
+
+    _audio({id:message.chat.id, audio: "hello.ogg"});
 }
 
 
 pika.route("/talk")
     .post(function(req, res){
-     console.log(req.body);
-    sendMessage(req.body.message);
+
+    console.log(req.body);
+
+
+    var message=req.body.message;
+
+    if(message.text==="/random"){
+
+    }else{
+        sendWelcome(req.body.message);
+    }
+
+
+
+
+
+
+
+
     res.status(200).jsonp({});
 });
 
