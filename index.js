@@ -30,8 +30,8 @@ function sendMessage(message){
 
 pika.route("/talk")
     .post(function(req, res){
-     console.log(res.body);
-    //sendMessage(req.body.message);
+     console.log(req.body);
+    sendMessage(req.body.message);
     res.status(200).jsonp({});
 });
 
