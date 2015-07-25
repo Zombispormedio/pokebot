@@ -19,9 +19,9 @@ var pika=express.Router();
 function sendMessage(message){
 
     request.post({
-        headers: {'content-type' : 'application/json'},
+   json:true,
         url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendMessage",
-        body:    {chat_id:message.chat.id,text:"Pika Pika-Chu"}
+        formData:    {chat_id:message.chat.id,text:"Pika Pika-Chu"}
     }, function(error, response, body){
         console.log(error);
         console.log(body);
