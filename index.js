@@ -2,6 +2,8 @@
 
 
 var express = require('express');
+var request = require('request');
+
 var app = express();
 require("./config/express.js")(app);
 app.set('port', (process.env.PORT || 5000));
@@ -13,14 +15,23 @@ app.use(router);
 
 var pika=express.Router();
 
+
+function sendMessage(message){
+
+    request.post({
+        headers: {'content-type' : 'application/json'},
+        url:     "https://api.telegram.org/bot123477263:AAFYEdXRp8nrrPvqXXWKyoaOqk7nOfvcEx4/sendMessage",
+        body:    {chat_id:message.chat.id,text:"Pika Pika-Chu"}
+    }, function(error, response, body){
+        console.log(body);
+    });
+}
+
+
 pika.route("/talk")
-    .get(function(req, res){
-    console.log(req.body);
-    res.send(200, "Perfect");
-})
     .post(function(req, res){
-    console.log(req.body);
-    res.send(200, "Perfect");
+    sendMessage(req.body.message);
+    res.send(200).jsonp({});
 });
 
 app.use(pika);
