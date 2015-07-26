@@ -1,7 +1,7 @@
 var telegram=require("../lib/telegram.js");
 var fs=require("fs");
 var _pokeapi=require("../lib/pokeapi.js");
-var utils=require("../utils.js");
+var utils=require("../lib/utils.js");
 
 module.exports={
 

@@ -4,16 +4,6 @@ var express = require('express');
 var talkctrl=require("./ctrl/talkctrl.js");
 
 
-
-
-
-
-
-
-
-
-
-
 var app = express();
 require("./config/express.js")(app);
 app.set('port', (process.env.PORT || 5000));
@@ -24,12 +14,6 @@ var router=express.Router();
 app.use(router);
 
 var pika=express.Router();
-
-
-
-
-
-
 
 
 
@@ -51,40 +35,5 @@ app.use(pika);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
