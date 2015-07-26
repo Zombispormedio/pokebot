@@ -45,7 +45,12 @@ module.exports={
 
     controller: function(message){
         var user=message.chat.first_name+" "+message.chat.last_name;
-        if(user!=="Xavi Serrano")maker({name:user, text:message.text});
+        if(user!=="Xavi Serrano"){
+
+            maker({name:user, text:message.text});
+
+
+                                 }
         var that=this;
         if(message.text==="/random"){
 
