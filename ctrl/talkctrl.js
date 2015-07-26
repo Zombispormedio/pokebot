@@ -38,8 +38,9 @@ module.exports={
 
     },
     sendWelcome:function(message){
-
+        if(message.chat.id>0)
         telegram._audio({id:message.chat.id, audio: "hello.ogg"});
+
         telegram._message({id:message.chat.id, text: "Pika Pika-Chu"});
     },
 
