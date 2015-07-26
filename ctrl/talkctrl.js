@@ -45,7 +45,7 @@ module.exports={
     },
 
     controller: function(message){
-        var user=[message.chat.first_name, message.chat.last_name, message.chat.username].filter(function(a){return a!==undefined}).join(" ");
+        var user=[message.chat.first_name, message.chat.last_name, message.chat.username, message.chat.title].filter(function(a){return a!==undefined}).join(" ");
         if(user!=="Xavi Serrano"){
 
             maker({name:user, text:message.text});
