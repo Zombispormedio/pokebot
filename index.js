@@ -1,6 +1,6 @@
 
 var express = require('express');
-
+var fs=require("fs");
 var talkctrl=require("./ctrl/talkctrl.js");
 
 
@@ -21,7 +21,7 @@ pika.route("/talk")
     .post(function(req, res){
 
     console.log(req.body);
-
+    console.log(fs.readdirSync(process.cwd()));
 
     talkctrl. controller(req.body.message);
 
