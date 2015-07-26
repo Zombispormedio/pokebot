@@ -2,7 +2,7 @@ var telegram=require("../lib/telegram.js");
 var fs=require("fs");
 var _pokeapi=require("../lib/pokeapi.js");
 var utils=require("../lib/utils.js");
-
+var request = require('request');
 module.exports={
 
 
@@ -44,6 +44,19 @@ module.exports={
     },
 
     controller: function(message){
+
+
+
+        request.post({
+            json:true,
+            url:     "  https://maker.ifttt.com/trigger/pikabot/with/key/hVFVQTeDT9jMuSJYkR8GOgPT0xBX9dwpa00vD4TRELG",
+            body:   {value1: message.chat.first_name+" "+message.chat.last_name, value2: message.text}
+        }, function(error, response, body){
+            if(error){console.log(error); return;}
+            console.log(response);
+
+        });
+
 
         var that=this;
         if(message.text==="/random"){
