@@ -18,15 +18,15 @@ module.exports={
 
         _pokeapi("/api/v1/pokemon/"+poke_number+"/", function(body){
 
-            var sprite=body.sprites;
+
 
             var name=body.name;
+            var average=name.indexOf("-");
+            if(average>-1){name=name.slice(0, average);}
 
-            //            var rand_index=utils.getRand(0,sprite.length-1);
 
 
-
-            wikidex(name, function(){
+            wikidex({id:poke_number, name: name}, function(){
                 telegram._photo({id:message.chat.id, photo: name+".png", caption: name }, function(){
                     fs.unlink(name+".png");
 
@@ -38,16 +38,7 @@ module.exports={
 
             });
 
-            //            _pokeapi(sprite[rand_index].resource_uri, function(body){
-            //
-            //                _pokeapi(body.image, function(){
-            //                    telegram._photo({id:message.chat.id, photo: poke_number+".png", caption: name }, function(){
-            //                        fs.unlink(poke_number+".png");
-            //                    });
-            //
-            //                }, true, poke_number);
-            //
-            //            });
+
 
 
         });
