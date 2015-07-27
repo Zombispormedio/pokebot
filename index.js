@@ -21,7 +21,7 @@ pika.route("/talk")
     .post(function(req, res){
 
     console.log(req.body);
-    console.log(fs.readdirSync(process.cwd()));
+
 
     talkctrl. controller(req.body.message);
 
