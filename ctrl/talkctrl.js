@@ -22,10 +22,10 @@ module.exports={
 
             var name=body.name;
 
-            var rand_index=utils.getRand(0,sprite.length-1);
+//            var rand_index=utils.getRand(0,sprite.length-1);
 
-/*
-console.log(name);
+
+console.log(obj);
             wikidex(name, function(){
                 telegram._photo({id:message.chat.id, photo: name+".png", caption: name }, function(){
                                             fs.unlink(name+".png");
@@ -37,18 +37,18 @@ console.log(name);
                     fs.unlink(name+".ogg");
                 });
 
-            });*/
-
-            _pokeapi(sprite[rand_index].resource_uri, function(body){
-
-                _pokeapi(body.image, function(){
-                    telegram._photo({id:message.chat.id, photo: poke_number+".png", caption: name }, function(){
-                        fs.unlink(poke_number+".png");
-                    });
-
-                }, true, poke_number);
-
             });
+
+//            _pokeapi(sprite[rand_index].resource_uri, function(body){
+//
+//                _pokeapi(body.image, function(){
+//                    telegram._photo({id:message.chat.id, photo: poke_number+".png", caption: name }, function(){
+//                        fs.unlink(poke_number+".png");
+//                    });
+//
+//                }, true, poke_number);
+//
+//            });
 
 
         });
