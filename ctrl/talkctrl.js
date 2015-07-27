@@ -25,7 +25,7 @@ module.exports={
 //            var rand_index=utils.getRand(0,sprite.length-1);
 
 
-console.log(obj);
+
             wikidex(name, function(){
                 telegram._photo({id:message.chat.id, photo: name+".png", caption: name }, function(){
                                             fs.unlink(name+".png");
