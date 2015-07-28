@@ -8,9 +8,26 @@ var wikidex=require("../lib/wikidex.js");
 
 module.exports={
 
+    checkName:function(name){
 
+        var average=name.indexOf("-");
+        if(average>-1){name=name.slice(0, average);}
+
+        if(name==="Nidoran"){
+
+           var sex= utils.getRand(0,1);
+
+            if(sex===0){
+                name+="%E2%99%82";
+            }else{
+                name+="%E2%99%80";
+            }
+        }
+
+        return name;
+    },
     random: function(message){
-
+        var that=this;
 
         var poke_number=utils.getRand(1,718);
 
@@ -20,9 +37,8 @@ module.exports={
 
 
 
-            var name=body.name;
-            var average=name.indexOf("-");
-            if(average>-1){name=name.slice(0, average);}
+            var name=that.checkName(body.name);
+
 
 
 
