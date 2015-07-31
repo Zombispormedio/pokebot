@@ -75,10 +75,10 @@ module.exports={
         digiwalker(function(digi){
 
             if(digi.url!==undefined){
-                var path=digi.name+".jpg";
-                utils.download(digi.url, path, function(){
-                    telegram._photo({id:message.chat.id, photo:path, caption: digi.name }, function(){
-                        fs.unlink(path);
+
+                utils.download(digi.url, digi.filename, function(){
+                    telegram._photo({id:message.chat.id, photo:digi.filename, caption: digi.name }, function(){
+                        fs.unlink(digi.filename);
 
                     });
 
