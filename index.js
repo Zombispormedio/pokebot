@@ -14,8 +14,8 @@ var router=express.Router();
 app.use(router);
 
 var pika=express.Router();
-console.log(process.cwd()+"/db/digimon_names");
-console.log(fs.readdirSync(process.cwd()+"/db/digimon_names"));
+
+
 
 pika.route("/talk")
     .post(function(req, res){
