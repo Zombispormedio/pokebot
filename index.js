@@ -34,7 +34,7 @@ app.use(pika);
 var sweet=express.Router();
 
 sweet.route("/switch")
-    .post(function(req, res){
+    .get(function(req, res){
 
     res.status(200).jsonp({data:"hello"});
     });
