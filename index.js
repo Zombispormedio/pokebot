@@ -31,6 +31,14 @@ pika.route("/talk")
 
 app.use(pika);
 
+var sweet=express.Router();
+
+sweet.route("/switch")
+    .post(function(req, res){
+
+    res.status(200).jsonp({data:"hello"});
+    });
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
