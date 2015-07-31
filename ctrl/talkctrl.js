@@ -86,7 +86,7 @@ module.exports={
                 });
 
             }else{
-                telegram._message({id:message.chat.id, text: "Pika Pika-Chu"});
+                telegram._message({id:message.chat.id, text: digi.name});
             }
 
 
