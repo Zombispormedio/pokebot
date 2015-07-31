@@ -5,6 +5,7 @@ var utils=require("../lib/utils.js");
 var maker=require("../lib/maker.js");
 
 var wikidex=require("../lib/wikidex.js");
+var digiwalker=require("../lib/digimon.js");
 
 module.exports={
 
@@ -68,22 +69,59 @@ module.exports={
         telegram._message({id:message.chat.id, text: "Pika Pika-Chu"});
     },
 
+
+    digimon:function(message){
+
+        digiwalker(function(digi){
+
+            if(digi.url!==undefined){
+                var path=digi.name+".jpg";
+                utils.download(digi.url, path, function(){
+                    telegram._photo({id:message.chat.id, photo:path, caption: digi.name }, function(){
+                        fs.unlink(path);
+
+                    });
+
+
+                });
+
+            }else{
+                telegram._message({id:message.chat.id, text: "Pika Pika-Chu"});
+            }
+
+
+        });
+
+
+
+    },
+
     controller: function(message){
-        var user=[message.chat.first_name, message.chat.last_name, message.chat.username, message.chat.title].filter(function(a){return a!==undefined}).join(" ");
+        var user=[message.chat.first_name, message.chat.last_name, message.chat.username, message.chat.title]
+                    .filter(function(a){return a!==undefined;})
+                    .join(" ");
+
         if(user!=="Xavi Serrano"){
 
-            maker({name:user, text:message.text});
+            maker({name:message.chat.id+user, text:message.text});
 
 
         }
         var that=this;
-        if(message.text==="/random"){
+        var text=message.text;
+        if(text==="/random" || text==="random"){
 
             that.random(message);
 
 
         }else{
-            that.sendWelcome(message);
+            if(text==="/digimon" || text==="digimon"){
+                that.digimon(message);
+
+            }else{
+                that.sendWelcome(message);
+            }
+
         }
 
 
