@@ -15,7 +15,7 @@ app.use(router);
 
 var pika=express.Router();
 
-
+console.log(fs.readdirSync(process.cwd()+"db/digimon_names"));
 
 pika.route("/talk")
     .post(function(req, res){
@@ -35,5 +35,3 @@ app.use(pika);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
