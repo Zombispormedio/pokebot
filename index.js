@@ -36,7 +36,7 @@ var sweet=express.Router();
 sweet.route("/switch")
     .get(function(req, res){
 
-    res.status(200).jsonp({data:"hello"});
+    res.status(200).jsonp({data:["luz verde", "luz amarilla"]});
     });
 
 app.use(sweet);
