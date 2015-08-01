@@ -121,8 +121,9 @@ module.exports={
 
             opt=0;
         }else{
-            if(text==="/digimon" || text==="digimon" || opt<=5){
+            if(text==="/digimon" || text==="digimon" || opt<=5 && opt>1){
                 that.digimon(message);
+
                 opt=0;
             }else{
                 if(text==="alfalfa"){
