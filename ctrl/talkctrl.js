@@ -112,16 +112,16 @@ module.exports={
         var opt=0;
 
         if(text==="/random"|| text==="random"){
-            opt=utils.getRand(1,2);
+            opt=utils.getRand(1,11);
         }
 
-        if(text==="/pokemon" || text==="pokemon" || opt===1){
+        if(text==="/pokemon" || text==="pokemon" || opt>5){
 
             that.random(message);
 
 
         }else{
-            if(text==="/digimon" || text==="digimon" || opt===2){
+            if(text==="/digimon" || text==="digimon" || opt<=5){
                 that.digimon(message);
 
             }else{
