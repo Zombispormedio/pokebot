@@ -27,7 +27,7 @@ module.exports={
 
         return name;
     },
-    random: function(message){
+    pokemon: function(message){
         var that=this;
 
         var poke_number=utils.getRand(1,718);
@@ -103,19 +103,25 @@ module.exports={
 
         if(user!=="Xavi Serrano"){
 
-            maker({name:message.chat.id+user, text:message.text});
+            maker({name:user, text:message.text});
 
 
         }
         var that=this;
         var text=message.text;
-        if(text==="/random" || text==="random"){
+        var opt=0;
+
+        if(text==="/random"|| text==="random"){
+            opt=utils.getRand(1,2);
+        }
+
+        if(text==="/pokemon" || text==="pokemon" || opt===1){
 
             that.random(message);
 
 
         }else{
-            if(text==="/digimon" || text==="digimon"){
+            if(text==="/digimon" || text==="digimon" || opt===2){
                 that.digimon(message);
 
             }else{
