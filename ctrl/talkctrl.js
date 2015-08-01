@@ -127,7 +127,7 @@ module.exports={
                 opt=0;
             }else{
                 if(text==="alfalfa"){
-                    telegram._message({id:message.chat.id, text: "Hola Pablito #1F61A"});
+                    telegram._message({id:message.chat.id, text: "Hola Pablito /U+1F61A"});
                 }else{
                 that.sendWelcome(message);
                 }
