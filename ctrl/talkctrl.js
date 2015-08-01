@@ -119,11 +119,11 @@ module.exports={
 
             that.pokemon(message);
 
-
+            opt=0;
         }else{
             if(text==="/digimon" || text==="digimon" || opt<=5){
                 that.digimon(message);
-
+                opt=0;
             }else{
                 if(text==="alfalfa"){
                     telegram._message({id:message.chat.id, text: "Hola Pablito #1F61A"});
