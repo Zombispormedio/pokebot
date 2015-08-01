@@ -117,7 +117,7 @@ module.exports={
 
         if(text==="/pokemon" || text==="pokemon" || opt>5){
 
-            that.random(message);
+            that.pokemon(message);
 
 
         }else{
