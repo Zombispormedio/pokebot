@@ -125,7 +125,11 @@ module.exports={
                 that.digimon(message);
 
             }else{
+                if(text==="alfalfa"){
+                    telegram._message({id:message.chat.id, text: "Hola Pablito #1F61A"});
+                }else{
                 that.sendWelcome(message);
+                }
             }
 
         }
