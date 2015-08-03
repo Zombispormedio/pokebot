@@ -10,8 +10,11 @@ var digimondb=levelup("./digimondb");
 //    console.log('Success Digimon names!');
 //});
 
-
-db_names.get('index', function (err, value) {
+digimondb.createKeyStream()
+    .on('data', function (data) {
+    console.log('key=', data);
+});
+/*db_names.get('index', function (err, value) {
     if (err) return console.log('Ooops!', err);
     var index=Number(value);
 
@@ -65,4 +68,4 @@ db_names.get('index', function (err, value) {
 
 
 
-});
+});*/
