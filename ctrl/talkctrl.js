@@ -77,7 +77,7 @@ module.exports={
             if(digi.url!==undefined){
 
                 utils.download(digi.url, digi.filename, function(){
-                    telegram._photo({id:message.chat.id, photo:digi.filename, caption: digi.name }, function(){
+                    telegram._photo({id:message.chat.id, photo:digi.url, caption: digi.name }, function(){
                         fs.unlink(digi.filename);
 
                     });
