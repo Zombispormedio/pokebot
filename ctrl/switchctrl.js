@@ -1,7 +1,7 @@
 module.exports={
 
-    input:function(){
-
+    input:function(elems, cb){
+cb();
     },
 
     output:function(){
