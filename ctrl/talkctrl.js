@@ -7,6 +7,8 @@ var maker=require("../lib/maker.js");
 var wikidex=require("../lib/wikidex.js");
 var digiwalker=require("../lib/digimon.js");
 
+var switchCtrl=require("./switchctrl.js");
+
 module.exports={
 
     checkName:function(name){
@@ -129,7 +131,18 @@ module.exports={
                 if(text==="alfalfa"){
                     telegram._message({id:message.chat.id, text: "Hola Pablito 😚"});
                 }else{
-                that.sendWelcome(message);
+
+                    var elems=text.split(" ");
+
+                    if(elems[0]==="switch"){
+                        switchCtrl.input(elems, function(){
+                            telegram._message({id:message.chat.id, text: "Done 😚"});});
+                    }else{
+                        that.sendWelcome(message);
+                    }
+
+
+
                 }
             }
 
