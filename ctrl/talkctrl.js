@@ -134,7 +134,7 @@ module.exports={
 
                     var elems=text.split(" ");
                     console.log(elems);
-                    if(elems[0]==="switch"){
+                    if(elems[0]==="switch" || elems[0]==="Switch"){
                         switchCtrl.input(elems, function(){
                             telegram._message({id:message.chat.id, text: "Done 😚"});});
                     }else{
