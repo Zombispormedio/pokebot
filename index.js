@@ -1,9 +1,9 @@
 
 var express = require('express');
-var fs=require("fs");
+
 var talkctrl=require("./ctrl/talkctrl.js");
 
-
+var switchctrl=require("./ctrl/switchctrl.js");
 var app = express();
 require("./config/express.js")(app);
 app.set('port', (process.env.PORT || 5000));
@@ -36,7 +36,11 @@ var sweet=express.Router();
 sweet.route("/switch")
     .get(function(req, res){
 
-    res.status(200).jsonp({data:["luz verde", "luz amarilla"]});
+    switchctrl.output(function(obj){
+        res.status(200).jsonp(obj);
+    });
+
+
     });
 
 app.use(sweet);

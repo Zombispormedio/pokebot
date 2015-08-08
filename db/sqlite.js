@@ -2,11 +2,15 @@ var sqlite3 = require('sqlite3').verbose();
 
 
 
-module.exports={
+module.exports=function(name){
 
+
+return {
+    dbname:name,
 
     connectDB:function(){
-        return new sqlite3.Database('./db/switch_db');
+        var that=this;
+    return new sqlite3.Database(that.dbname);
     },
 
     dbConnection:function(cb){
@@ -46,15 +50,28 @@ module.exports={
         that.runDB("CREATE TABLE IF NOT EXISTS "+tablename+" ("+properties.join(",")+")");
     },
 
-    selectAll:function(tablename, cb){
+    selectAll:function(tablename, cb, order){
         var that=this;
-        that.eachRow("SELECT * FROM "+tablename, cb);
+        var sentence="SELECT * FROM "+tablename;
+        if(order!==undefined){
+            sentence+=" ORDER BY "+order;
+        }
+        that.eachRow(sentence, cb);
 
     },
 
     insert:function(tablename, values, cb){
         var that=this;
-        that.runDB("INSERT INTO "+tablename+" VALUES (?, ?, ?)", values, cb);
+
+        var str_values="?";
+
+        if(values.length>1){
+            for(var i=0; i<values.length-1;i++){
+                str_values+=", ?";
+            }
+        }
+
+        that.runDB("INSERT INTO "+tablename+" VALUES ("+str_values+")", values, cb);
 
     },
 
@@ -71,6 +88,6 @@ module.exports={
 
 
 
-
+};
 
 };
