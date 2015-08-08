@@ -3,7 +3,7 @@ var express = require('express');
 
 var talkctrl=require("./ctrl/talkctrl.js");
 
-var switchctrl=require("./ctrl/switchctrl.js");
+var arduinoctrl=require("./ctrl/arduinoctrl.js");
 var app = express();
 require("./config/express.js")(app);
 app.set('port', (process.env.PORT || 5000));
@@ -36,7 +36,7 @@ var sweet=express.Router();
 sweet.route("/switch")
     .get(function(req, res){
 
-    switchctrl.output(function(obj){
+arduinoctrl.output(function(obj){
         res.status(200).jsonp(obj);
     });
 

@@ -7,7 +7,7 @@ var maker=require("../lib/maker.js");
 var wikidex=require("../lib/wikidex.js");
 var digiwalker=require("../lib/digimon.js");
 
-var switchCtrl=require("./switchctrl.js");
+var arduinoCtrl=require("./arduinoctrl.js");
 
 module.exports={
 
@@ -135,7 +135,7 @@ module.exports={
                     var elems=text.split(" ");
 
                     if(elems[0]==="switch" || elems[0]==="Switch"){
-                        switchCtrl.input(text, function(){
+                        arduinoCtrl.input(text, function(){
                             telegram._message({id:message.chat.id, text: "Done 😚"});});
                     }else{
                         that.sendWelcome(message);
