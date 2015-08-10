@@ -28,9 +28,9 @@ return {
         var that=this;
         that.dbConnection(function(db){
             if(values!==undefined)
-                db.run(sentence, values, cb);
+                db.exec(sentence, values, cb);
             else
-                db.run(sentence, cb);
+                db.exec(sentence, cb);
         });
 
     },
