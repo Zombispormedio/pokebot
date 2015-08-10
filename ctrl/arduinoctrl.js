@@ -19,7 +19,7 @@ module.exports={
             if(row.length>0){
                 obj.state=true;
 				
-                obj.data=row.DATA
+                obj.data=row.ACTION
                 sqlite.deleteAll(that.tablename);
 
 
