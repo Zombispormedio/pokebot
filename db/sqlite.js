@@ -38,7 +38,7 @@ return {
     eachRow:function(sentence, cb){
         var that=this;
         that.dbConnection(function(db){
-            db.all(sentence, function(err, rows) {
+            db.each(sentence, function(err, rows) {
                 if(err){console.log(err); return;}
                 cb(rows);
             });

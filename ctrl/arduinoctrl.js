@@ -14,13 +14,11 @@ module.exports={
 
     output:function(cb){
         var that=this;
-        sqlite.selectAll(that.tablename, function(rows){
+        sqlite.selectAll(that.tablename, function(row){
             var obj={};
             if(rows.length>0){
                 obj.state=true;
-                obj.data=rows.map(function(a){
-                    return a.ACTION;
-                });
+                obj.data=row
                 sqlite.deleteAll(that.tablename);
 
 
