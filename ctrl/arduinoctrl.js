@@ -18,7 +18,8 @@ module.exports={
             var obj={};
             if(rows.length>0){
                 obj.state=true;
-                obj.data=row
+				
+                obj.data=row.DATA
                 sqlite.deleteAll(that.tablename);
 
 
