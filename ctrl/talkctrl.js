@@ -134,7 +134,7 @@ module.exports={
 
                     var elems=text.split(" ");
 
-                    if(elems[0]==="switch" || elems[0]==="Switch"){
+                    if(elems[0]==="switch" || elems[0]==="Switch" || elems[0]==="/switch" || elems[0]==="/Switch"){
                         arduinoCtrl.input(text, function(){
                             telegram._message({id:message.chat.id, text: "Done 😚"});});
                     }else{
