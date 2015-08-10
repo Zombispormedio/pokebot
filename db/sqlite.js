@@ -50,12 +50,18 @@ return {
         that.runDB("CREATE TABLE IF NOT EXISTS "+tablename+" ("+properties.join(",")+")");
     },
 
-    selectAll:function(tablename, cb, order){
+    selectAll:function(tablename, cb, constrains){
         var that=this;
         var sentence="SELECT * FROM "+tablename;
-        if(order!==undefined){
-            sentence+=" ORDER BY "+order;
+		if(constrains!==undefined){
+        if(constrains.order!==undefined){
+            sentence+=" ORDER BY "+constrains.order;
         }
+		
+		if(constrains.limit!==undefined){
+			sentence+=" LIMIT "+constrains.limit;
+		}
+		}
         that.eachRow(sentence, cb);
 
     },

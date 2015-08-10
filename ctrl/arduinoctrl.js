@@ -1,4 +1,4 @@
-var sqlite=require("../db/sqlite.js")(process.cwd()+"/db/switch_db");
+var sqlite=require("../db/sqlite.js")(process.cwd()+"/db/arduino_db");
 var utils=require("../lib/utils.js");
 module.exports={
     tablename:"Arduino",
@@ -30,7 +30,7 @@ module.exports={
 
             cb(obj);
 
-        });
+        }, {limit:1});
 
     }
 

@@ -3,3 +3,4 @@ npm-debug.log
 test/
 .brackets.json
 db/fusion.js
+db/switch_db
