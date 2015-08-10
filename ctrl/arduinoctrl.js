@@ -16,7 +16,7 @@ module.exports={
         var that=this;
         sqlite.selectAll(that.tablename, function(row){
             var obj={};
-            if(rows.length>0){
+            if(row.length>0){
                 obj.state=true;
 				
                 obj.data=row.DATA

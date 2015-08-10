@@ -62,7 +62,7 @@ return {
 			sentence+=" LIMIT "+constrains.limit;
 		}
 		}
-		console.log(sentence);
+		
         that.eachRow(sentence, cb);
 
     },
