@@ -1,4 +1,4 @@
-var sqlite=require("./sqlite.js");
+var sqlite=require("./sqlite.js")("./arduino_db");
 
 sqlite.createTable("Arduino", [
 
