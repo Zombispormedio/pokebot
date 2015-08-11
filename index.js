@@ -51,9 +51,9 @@ var ardu=express.Router();
 sweet.route("/arduino")
     .post(function(req, res){
 	console.log(req.body);
-    arduinoctrl.input(req.body.text, function(){
+    /*arduinoctrl.input(req.body.text, function(){
         res.status(200).jsonp({});
-    });
+    });*/
 
 
 });
