@@ -46,6 +46,22 @@ arduinoctrl.output(function(obj){
 app.use(sweet);
 
 
+var ardu=express.Router();
+
+sweet.route("/arduino")
+    .get(function(req, res){
+
+    arduinoctrl.input(req.body, function(){
+        res.status(200).jsonp({});
+    });
+
+
+});
+
+app.use(ardu);
+
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
