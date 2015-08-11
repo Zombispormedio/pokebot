@@ -49,7 +49,7 @@ app.use(sweet);
 var ardu=express.Router();
 
 sweet.route("/arduino")
-    .get(function(req, res){
+    .post(function(req, res){
 
     arduinoctrl.input(req.body, function(){
         res.status(200).jsonp({});
