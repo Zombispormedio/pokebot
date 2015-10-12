@@ -4,3 +4,5 @@ test/
 .brackets.json
 db/fusion.js
 db/switch_db
+*.ntvs_analysis.dat
+*.njsproj
